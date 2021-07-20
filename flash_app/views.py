@@ -4,7 +4,6 @@ from .models import Card
 
 
 # Create your views here.
-@login_required
 def index(request):
   cards = Card.show_cards()
 
