@@ -20,10 +20,10 @@
     <div class="col-md-4">
       {% if user_cards %}
       {% for card in user_cards %}
-      <div class="card">
+      <a href="{% url 'card_view' card.id  %}"><div class="card">
         <p class="title">{{card.title}}</p>
         <p>Created on {{card.created_at|date}}</p>
-      </div>
+      </div></a>
       {% endfor %}
       {% endif %}
     </div>
