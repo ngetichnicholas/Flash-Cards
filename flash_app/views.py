@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Card
+from .models import FlashCard
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import login as auth_login
 from . forms import Registration
@@ -11,7 +11,7 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-  cards = Card.show_cards()
+  cards = FlashCard.show_cards()
 
   return render (request,'index.html',{"cards":cards})
 
