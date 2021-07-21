@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container">
+  <div class="container pt-3">
+    <div class="row">
+      <div class="col-md-8">
+        <hr>
+
+        <div class="" id="myContent">
+          <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+              <label for="" class="border-bottom mb-4 text-center">Edit Flashcard</label>
+              {% bootstrap_form update_card_form%}
+            </fieldset>
+            <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
