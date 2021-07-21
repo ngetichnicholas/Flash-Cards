@@ -11,9 +11,10 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-  cards = FlashCard.show_cards()
+  current_user = request.user
+  user_cards = FlashCard.objects.filter(user_id = current_user.id).all().order_by('-created_at')
 
-  return render (request,'index.html',{"cards":cards})
+  return render (request,'index.html',{"current_user":current_user, "user_cards":user_cards})
 
 def register(request):
   if request.method == 'POST':
