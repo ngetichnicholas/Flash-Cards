@@ -6,6 +6,13 @@ from django.contrib.auth import login as auth_login
 from . forms import Registration,CreateCardForm,UpdateCardForm
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
+from django.http import JsonResponse
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  Subject,FlashCard
+from .serializer import FlashCardSerializer,SubjectSerializer
+from rest_framework import status
+from rest_framework import viewsets
 
 
 # Create your views here.
@@ -95,3 +102,16 @@ def update_card(request, card_id):
     update_card_form = UpdateCardForm(instance=card)
 
   return render(request, 'update_card.html', {"update_card_form":update_card_form})
+
+#API Views
+class ProjectList(APIView):
+  def get(self,request,format=None):
+    projects=FlashCard.objects.all()
+    serializers=FlashCardSerializer(projects,many=True)
+    return Response(serializers.data)
+
+class ProfileList(APIView):
+  def get(self,request,format=None):
+    profiles=Subject.objects.all()
+    serializers=SubjectSerializer(profiles,many=True)
+    return Response(serializers.data)
