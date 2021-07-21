@@ -34,8 +34,8 @@
         </div>
       </div>
       <div class="card-footer">
-        <p class="text-center">Created on {{card.created_at|date}}</p>
-        <p class="text-center">Last updated {{card.created_at|date}}</p>
+        <p class="text-center">Created on {{card.created_at}}</p>
+        <p class="text-center">Last updated {{card.updated_at}}</p>
         {% if card.user.username == current_user.username %}
         <div class="text-center">
         <a href="{% url 'update_card' card.id %}" class="btn btn-primary">Update Flashcard</a>
