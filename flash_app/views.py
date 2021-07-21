@@ -72,3 +72,11 @@ def card_view(request,card_id):
   card = FlashCard.objects.get(pk = card_id)
   
   return render(request, 'card_page.html', {'current_user':current_user,'card':card})
+
+@login_required
+def delete_card(request,card_id):
+  current_user = request.user
+  card = FlashCard.objects.get(pk=card_id)
+  if card:
+    card.delete_card()
+  return redirect('home')
