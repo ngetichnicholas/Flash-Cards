@@ -11,7 +11,7 @@ class Registration(UserCreationForm):
     fields = ['username','email','password1','password2']
 
 class CreateCardForm(forms.ModelForm):
-  
+
 	class Meta:
 		model = FlashCard
-		fields = ['title','subject' 'front_side', 'back_side']
+		fields = ['title','subject', 'front_side', 'back_side']

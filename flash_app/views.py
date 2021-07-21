@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import FlashCard
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import login as auth_login
-from . forms import Registration
+from . forms import Registration,CreateCardForm
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
 
@@ -51,3 +51,17 @@ def login(request):
 def profile(request):
   current_user = request.user  
   return render(request,'profile/profile.html',{"current_user":current_user})
+
+@login_required
+def create_card(request):
+  if request.method == 'POST':
+    new_card_form = CreateCardForm(request.POST,request.FILES) 
+    if new_card_form.is_valid():
+      new_card = new_card_form.save(commit = False)
+      new_card.user = request.user
+      new_card.save()
+      return redirect('home')
+
+  else:
+    new_card_form = CreateCardForm()
+  return render(request,'create_card.html',{"new_card_form":new_card_form})
