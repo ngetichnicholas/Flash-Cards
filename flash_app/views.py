@@ -69,9 +69,10 @@ def create_card(request):
 
 def card_view(request,card_id):
   current_user = request.user
+  user_cards = FlashCard.objects.filter(user_id = current_user.id).all().order_by('-created_at')
   card = FlashCard.objects.get(pk = card_id)
   
-  return render(request, 'card_page.html', {'current_user':current_user,'card':card})
+  return render(request, 'card_page.html', {'current_user':current_user,'user_cards':user_cards,'card':card})
 
 @login_required
 def delete_card(request,card_id):
