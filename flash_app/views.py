@@ -110,6 +110,15 @@ class FlashCardList(APIView):
     serializers=FlashCardSerializer(projects,many=True)
     return Response(serializers.data)
 
+  def post(self, request, format=None):
+    serializers = FlashCardSerializer(data=request.data)
+    if serializers.is_valid():
+        serializers.save()
+        return Response(serializers.data, status=status.HTTP_201_CREATED)
+    return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+  permission_classes = (IsAdminOrReadOnly,)
+
 class SubjectList(APIView):
   def get(self,request,format=None):
     profiles=Subject.objects.all()
