@@ -11,4 +11,6 @@ urlpatterns = [
   path('accounts/login/',app_views.login,name='login'),
   path('logout/',auth_views.LogoutView.as_view(template_name = 'registration/logout.html'),name='logout'),
   path('accounts/profile/',app_views.profile,name='profile'),
+  path('create_flashcard/',app_views.create_card,name='create_card'),
+
 ]
