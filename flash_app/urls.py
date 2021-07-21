@@ -13,6 +13,7 @@ urlpatterns = [
   path('accounts/profile/',app_views.profile,name='profile'),
   path('create_flashcard/',app_views.create_card,name='create_card'),
   path('card/<int:card_id>',app_views.card_view,  name='card_view'),
+  path('update/<int:card_id>',app_views.update_card,name='update_card'),
   re_path(r'^delete_card/(?P<card_id>\d+)$',app_views.delete_card,name='delete_card'),
 
 

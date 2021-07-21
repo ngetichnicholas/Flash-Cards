@@ -91,6 +91,6 @@ def update_card(request, card_id):
       messages.success(request, f'Flashcard updated!')
       return redirect('home')
   else:
-    form = UpdateCardForm(instance=card)
+    update_card_form = UpdateCardForm(instance=card)
 
   return render(request, 'update_card.html', {"update_card_form":update_card_form})

@@ -19,4 +19,4 @@ class CreateCardForm(forms.ModelForm):
 class UpdateCardForm(forms.ModelForm):
   class Meta:
     model = FlashCard
-    fields = ['title','subject','front_side','back_side','updated_at']
+    fields = ['title','subject','front_side','back_side']

@@ -32,7 +32,8 @@
         </div>
         <p class="text-center">Created on {{card.created_at|date}}</p>
         {% if card.user.username == current_user.username %}
-        <a href="{% url 'delete_card' card.id %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'update_card' card.id %}" class="btn btn-primary">Update Flashcard</a>
+        <a href="{% url 'delete_card' card.id %}" class="btn btn-danger">Delete Flashcard</a>
         {% endif %}
       </div>
     </div>
