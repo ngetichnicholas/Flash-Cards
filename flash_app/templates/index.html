@@ -1,10 +1,33 @@
 {% extends "base.html" %}
-{% load static %}
 {% load bootstrap4 %}
 {% block content %}
 <div class="container-fluid">
   <div class="row">
-<h1>Welcome to flash cards</h1>
+    <div class="col-md-4">
+      {% if user.profile.profile_picture.url %}
+      <img class="profile_picture" src="{{ user.profile.profile_picture.url }}" style="height: 10vh; width:10vh;"
+        alt="{{ profile.name }}">
+      {% else %}
+      <img class="profile_picture"
+        src="https://res.cloudinary.com/dbos9xidr/image/upload/v1626854682/zvtfufhexa8lqqqgcdt3.png"
+        style="height: 10vh; width:10vh;" alt="{{ profile.name }}">
+      {% endif %}
+
+      <p class="">{{user.username}}</p>
+      <p class="">{{user_cards|length}} Cards</p>
+      <a href="{% url 'create_card' %}"><button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
+    </div>
+    <div class="col-md-4">
+      {% if user_cards %}
+      {% for card in user_cards %}
+      <div class="card">
+        <p class="title">{{card.title}}</p>
+        <p>Created on {{card.created_at|date}}</p>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <div class="col-md-4"></div>
   </div>
 </div>
 {% endblock %}
