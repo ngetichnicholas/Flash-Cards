@@ -15,12 +15,13 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-cloudinary.config(
-    cloud_name ='dbos9xidr',
-    api_key=config('api_key'), 
-    api_secret=config('api_secret'),
-)
 
+cloudinary.config( 
+    cloud_name = "instagram-santa", 
+    api_key = "891768422865438", 
+    api_secret = "GokPH3gkx3sgDlc3mF7YhXbZs2g",
+    secure = True
+    )
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -96,11 +97,7 @@ DATABASES = {
 }
 
 # Email configurations remember to install python-decouple
-EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
