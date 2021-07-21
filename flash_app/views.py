@@ -8,7 +8,6 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
 
 
-
 # Create your views here.
 def index(request):
   current_user = request.user
