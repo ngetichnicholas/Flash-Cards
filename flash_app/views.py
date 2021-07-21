@@ -6,7 +6,7 @@ from django.contrib.auth import login as auth_login
 from . forms import Registration,CreateCardForm,UpdateCardForm
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import HttpResponse, Http404,HttpResponseRedirect
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import  Subject,FlashCard
@@ -126,3 +126,30 @@ class SubjectList(APIView):
     profiles=Subject.objects.all()
     serializers=SubjectSerializer(profiles,many=True)
     return Response(serializers.data)
+
+class FlashCardActions(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+    def get_card(self, pk):
+        try:
+            return FlashCard.objects.get(pk=pk)
+        except FlashCard.DoesNotExist:
+            return Http404
+
+    def get(self, request, pk, format=None):
+        card = self.get_card(pk)
+        serializers = FlashCardSerializer(card)
+        return Response(serializers.data)
+
+    def put(self, request, pk, format=None):
+        card = self.get_card(pk)
+        serializers = FlashCardSerializer(card, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        card = self.get_card(pk)
+        card.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

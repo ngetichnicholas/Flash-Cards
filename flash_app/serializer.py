@@ -5,7 +5,7 @@ from .models import FlashCard, Subject
 class FlashCardSerializer(serializers.ModelSerializer):
     class Meta:
         model = FlashCard
-        fields = ['id','title', 'subject', 'front_side', 'back_side','created_at','updated_at']
+        fields = ['id','title', 'subject', 'front_side', 'back_side','created_at','updated_at','user']
 
 
 class SubjectSerializer(serializers.ModelSerializer):
