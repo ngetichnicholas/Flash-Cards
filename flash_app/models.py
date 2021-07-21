@@ -18,12 +18,16 @@ class FlashCard(models.Model):
   def delete_card(self):
     self.delete()
 
-  def __str__(self):
-    return self.title
+  @classmethod
+  def search_cards(cls, title):
+    return cls.objects.filter(title__icontains=title).all()
 
   @classmethod
   def show_cards(cls):
     cards = cls.objects.all()
     return cards
+
+  def __str__(self):
+    return self.title
 
 
