@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import FlashCard
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import login as auth_login
-from . forms import Registration,CreateCardForm
+from . forms import Registration,CreateCardForm,UpdateCardForm
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
 
