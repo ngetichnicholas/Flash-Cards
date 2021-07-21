@@ -66,3 +66,9 @@ def create_card(request):
   else:
     new_card_form = CreateCardForm()
   return render(request,'create_card.html',{"new_card_form":new_card_form})
+
+def card_view(request,card_id):
+  current_user = request.user
+  card = FlashCard.objects.get(pk = card_id)
+  
+  return render(request, 'card_page.html', {'current_user':current_user,'card':card})
