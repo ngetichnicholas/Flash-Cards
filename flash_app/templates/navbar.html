@@ -23,19 +23,18 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">{{ user.username|title }} <img class="rounded-circle nav-img" src="{{ user.profile.profile_picture.url }}"alt=""></a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item text-center" href="{% url 'profile' user.username %}">Profile</a>
+                        <a class="dropdown-item text-center" href="">{{current_user.username}}</a>
                         <hr>
-                        <a class="dropdown-item text-center" href="{% url 'edit' user.username  %}"> Edit profile</a>
-                        <hr>
-                        <a href="{% url 'logout' %}" class="text-secondary text-center dropdown-item">Log Out</a>
+                        <a href="/logout" class="text-secondary text-center dropdown-item">Log Out</a>
                     </div>
                 </li>
                 {% else %}
-                <a href="{% url 'login' %}" class="login btn btn-sm btn-info"> REGISTER/LOGIN </a>
+                <a href="{% url 'register' %}" class="login btn btn-sm btn-info"> REGISTER</a>
+                <a href="{% url 'login' %}" class="login btn btn-sm btn-info"> LOGIN </a>
                 {% endif %}
-                <button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">
+               <a href="{% url 'create_card' %}"><button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">
                     Submit your your flash-card
-                </button>
+                </button></a>
             </ul>
         </div>
     </div>

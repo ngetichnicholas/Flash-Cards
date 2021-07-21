@@ -9,6 +9,7 @@ from django.contrib import messages
 
 
 # Create your views here.
+@login_required
 def index(request):
   current_user = request.user
   user_cards = FlashCard.objects.filter(user_id = current_user.id).all().order_by('-created_at')
