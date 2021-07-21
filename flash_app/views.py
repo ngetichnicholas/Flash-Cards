@@ -14,7 +14,7 @@ from .serializer import FlashCardSerializer,SubjectSerializer
 from rest_framework import status
 from rest_framework import viewsets
 from .permissions import IsAdminOrReadOnly
-
+from django.core.exceptions import ObjectDoesNotExist
 
 
 # Create your views here.
@@ -128,28 +128,56 @@ class SubjectList(APIView):
     return Response(serializers.data)
 
 class FlashCardActions(APIView):
-    permission_classes = (IsAdminOrReadOnly,)
-    def get_card(self, pk):
-        try:
-            return FlashCard.objects.get(pk=pk)
-        except FlashCard.DoesNotExist:
-            return Http404
+  permission_classes = (IsAdminOrReadOnly,)
+  def get_card(self, pk):
+    try:
+      return FlashCard.objects.get(pk=pk)
+    except FlashCard.DoesNotExist:
+      return Http404
 
-    def get(self, request, pk, format=None):
-        card = self.get_card(pk)
-        serializers = FlashCardSerializer(card)
-        return Response(serializers.data)
+  def get(self, request, pk, format=None):
+    card = self.get_card(pk)
+    serializers = FlashCardSerializer(card)
+    return Response(serializers.data)
 
-    def put(self, request, pk, format=None):
-        card = self.get_card(pk)
-        serializers = FlashCardSerializer(card, request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data)
-        else:
-            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+  def put(self, request, pk, format=None):
+    card = self.get_card(pk)
+    serializers = FlashCardSerializer(card, request.data)
+    if serializers.is_valid():
+      serializers.save()
+      return Response(serializers.data)
+    else:
+      return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
-        card = self.get_card(pk)
-        card.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+  def delete(self, request, pk, format=None):
+    card = self.get_card(pk)
+    card.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+
+def filter_physics_cards(request):
+  try:
+   cards = FlashCard.objects.filter(subject =1)
+  except ObjectDoesNotExist:
+    raise Http404()
+  return render(request, 'subjeects.html', {'cards':cards})
+
+def filter_bio_cards(request):
+  try:
+   cards = FlashCard.objects.filter(subject =2)
+  except ObjectDoesNotExist:
+    raise Http404()
+  return render(request, 'subjeects.html', {'cards':cards})
+
+def filter_history_cards(request):
+  try:
+   cards = FlashCard.objects.filter(subject =3)
+  except ObjectDoesNotExist:
+    raise Http404()
+  return render(request, 'subjeects.html', {'cards':cards})
+
+def filter_chem_cards(request):
+  try:
+   cards = FlashCard.objects.filter(subject =4)
+  except ObjectDoesNotExist:
+    raise Http404()
+  return render(request, 'subjeects.html', {'cards':cards})
