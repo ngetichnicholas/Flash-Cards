@@ -159,25 +159,25 @@ def filter_physics_cards(request):
    cards = FlashCard.objects.filter(subject =1)
   except ObjectDoesNotExist:
     raise Http404()
-  return render(request, 'subjeects.html', {'cards':cards})
+  return render(request, 'subjects.html', {'cards':cards})
 
 def filter_bio_cards(request):
   try:
    cards = FlashCard.objects.filter(subject =2)
   except ObjectDoesNotExist:
     raise Http404()
-  return render(request, 'subjeects.html', {'cards':cards})
+  return render(request, 'subjects.html', {'cards':cards})
 
 def filter_history_cards(request):
   try:
    cards = FlashCard.objects.filter(subject =3)
   except ObjectDoesNotExist:
     raise Http404()
-  return render(request, 'subjeects.html', {'cards':cards})
+  return render(request, 'subjects.html', {'cards':cards})
 
 def filter_chem_cards(request):
   try:
    cards = FlashCard.objects.filter(subject =4)
   except ObjectDoesNotExist:
     raise Http404()
-  return render(request, 'subjeects.html', {'cards':cards})
+  return render(request, 'subjects.html', {'cards':cards})

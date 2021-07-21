@@ -18,7 +18,10 @@ urlpatterns = [
   path('api/subjects/',app_views.SubjectList.as_view()),
   path('api_token/', obtain_auth_token),
   path('delete_card/<card_id>',app_views.delete_card,name='delete_card'),
-  path('api/card/<int:pk>',app_views.FlashCardActions.as_view())
-
+  path('api/card/<int:pk>',app_views.FlashCardActions.as_view()),
+  path('physics/',app_views.filter_physics_cards,name='physics'),
+  path('bio/',app_views.filter_bio_cards,name='bio'),
+  path('history/',app_views.filter_history_cards,name='history'),
+  path('chem/',app_views.filter_chem_cards,name='chem'),
 
 ]
