@@ -14,12 +14,12 @@
       {% endif %}
 
       <p class="">{{user.username}}</p>
-      <p class="">{{user_cards|length}} Cards</p>
+      <p class="">{{cards|length}} Cards</p>
       <a href="{% url 'create_card' %}"><button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
     </div>
     <div class="col-md-4">
-      {% if user_cards %}
-      {% for card in user_cards %}
+      {% if cards %}
+      {% for card in cards %}
       <a href="{% url 'card_view' card.id  %}"><div class="card">
         <p class="title">{{card.title}}</p>
         <p>Created on {{card.created_at|date}}</p>

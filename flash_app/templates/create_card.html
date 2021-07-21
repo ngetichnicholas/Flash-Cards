@@ -9,7 +9,7 @@
             <form action="{% url 'create_card' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form new_card_form %}
-                <input type="submit" class="btn btn-success link" value="POST">
+                <input type="submit" class="btn btn-success link" value="Save">
             </form>
         </div>
     </div>
