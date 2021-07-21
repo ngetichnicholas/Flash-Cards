@@ -104,13 +104,13 @@ def update_card(request, card_id):
   return render(request, 'update_card.html', {"update_card_form":update_card_form})
 
 #API Views
-class ProjectList(APIView):
+class FlashCardList(APIView):
   def get(self,request,format=None):
     projects=FlashCard.objects.all()
     serializers=FlashCardSerializer(projects,many=True)
     return Response(serializers.data)
 
-class ProfileList(APIView):
+class SubjectList(APIView):
   def get(self,request,format=None):
     profiles=Subject.objects.all()
     serializers=SubjectSerializer(profiles,many=True)
