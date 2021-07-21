@@ -13,6 +13,8 @@ from .models import  Subject,FlashCard
 from .serializer import FlashCardSerializer,SubjectSerializer
 from rest_framework import status
 from rest_framework import viewsets
+from .permissions import IsAdminOrReadOnly
+
 
 
 # Create your views here.
