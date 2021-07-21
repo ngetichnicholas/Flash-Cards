@@ -80,3 +80,17 @@ def delete_card(request,card_id):
   if card:
     card.delete_card()
   return redirect('home')
+
+@login_required
+def update_card(request, card_id):
+  card = FlashCard.objects.get(pk=card_id)
+  if request.method == 'POST':
+    update_card_form = UpdateCardForm(request.POST, instance=card)
+    if update_card_form.is_valid():
+      update_card_form.save()
+      messages.success(request, f'Flashcard updated!')
+      return redirect('home')
+  else:
+    form = UpdateCardForm(instance=card)
+
+  return render(request, 'update_card.html', {"update_card_form":update_card_form})
