@@ -10,8 +10,8 @@
             <a href="#" class="nav-item nav-link">About</a>
             <a href="#" class="nav-item nav-link">Products</a>
         </div>
-        <form class="form-inline ml-auto">
-            <input type="text" class="form-control mr-sm-2" placeholder="Search">
+        <form class="form-inline ml-auto" role="search" action="{% url 'search' %}">
+            <input type="text" class="form-control mr-sm-2" placeholder="Search cards" name="card">
             <button type="submit" class="btn btn-outline-light">Search</button>
         </form>
     </div>
