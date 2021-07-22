@@ -1,46 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Yatra+One&family=Zen+Tokyo+Zoo&display=swap');
-#navigate {
+.navbar {
   margin-bottom:5rem;
   background-color: rgb(22, 61, 83);
   color:white;
-  padding-left: 10rem;
-  padding-right:10rem;
-
 }
 body {
   background-image: url('../images/jason-leung-Xaanw0s0pMk-unsplash\ \(2\).jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  font-size: 22px;
   font-family: 'Yatra One', cursive;
   color: white;
-
 }
-
-.notes {
-  background-color: rgba(255, 255, 255, 0.876);
-  height:10rem;
-  margin-bottom: 2rem;
-  color: rgb(3, 33, 53) ;
-  box-shadow:0 0 2px 2px #b40e9e;
-}
-
-.profile{
-  color: white;
+.profile_picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-items: center;
   text-align: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.cards,.card-header,.card-footer,.card-body {
+  padding: 2rem;
+  margin: 0.3rem;
+  background-color: #006579 !important;
+  color: #FED401;
+}
+.text-muted {
+  color: #A1BFA0 !important;
+}
+.forms, .panel {
+  padding: 2rem;
+  margin: 2rem;
+  background-color: #006579 !important;
+  color: #FED401;
+}
+.card {
+  box-shadow:0 0 2px 2px #b40e9e;
+  background-color: #006579;
+  color: #FED401;
+  padding: 2rem;
+  margin: 2rem;
+}
+ul {
+  list-style: none;
+}
+.card>li>a {
+  color: #FED401;
+}
+.profile{
+  color: #FED401;
+  text-align: center;
+  align-items: center;
   height: 20rem;
   background-color: rgb(6, 124, 148);
   padding-top: 5px;
   box-shadow:0 0 2px 2px #b40e9e;
 }
-
-.profile_picture {
-  margin-left:5rem;
+.title {
+  color: #FED401;
 }
-
-.profile_picture2 {
-  margin-left:10rem;
+h2 {
+  text-align: center;
+  background-color: #006579;
+  color: white;
+  margin-top: 2rem;
 }
-
+h1 {
+  background-color: #006579;
+}
 .name{
   font-size: 30px;
   font-weight: 900;
@@ -55,8 +84,8 @@ body {
   font-weight: 900;
   font-size: 30px;
 }
-#reg{
-  color: white;
+.nav-link{
+  color: white !important;
 }
 
 #login {
@@ -65,42 +94,17 @@ body {
 
 #logout {
   color: white;
-  margin-left:5rem;
-  font-size: 20px;
 }
-
-ul {
-  list-style: none;
-  font-size: 25px;
-  color: white;
+@media screen and (max-width:1082px) {
+  .card {
+    margin: 2rem 0 2rem 0 !important;
+    padding: 0 !important;
+  }
+  
 }
-
-.categories>li>a {
-  color:white;
-}
-
-.profile2 {
-  color: white;
-  text-align: center;
-  height: 20rem;
-  background-color: rgb(6, 124, 148);
-  padding-top: 15px;
-  box-shadow:0 0 2px 2px #b40e9e;
-  font-size: 25px;
-}
-
-.fullcard {
-  background-color: rgba(255, 255, 255, 0.931);
-  color: rgb(6, 124, 148);
-  box-shadow:0 0 2px 2px #b40e9e;
-}
-
-.delete {
-  background-color: rgb(226, 43, 195);
-  color:white;
-}
-
-.update {
-  background-color: rgb(13, 157, 185);
-  color:white;
+@media screen and (max-width:766px) {
+  .form-inline>.form-control,.btn {
+    margin-bottom: 1rem !important;
+  }
+  
 }

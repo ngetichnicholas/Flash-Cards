@@ -23,5 +23,6 @@ urlpatterns = [
   path('bio/',app_views.filter_bio_cards,name='bio'),
   path('history/',app_views.filter_history_cards,name='history'),
   path('chem/',app_views.filter_chem_cards,name='chem'),
+  path('search',app_views.search,name='search'),
 
 ]

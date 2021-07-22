@@ -3,38 +3,53 @@
 {% block content %}
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-      {% if user.profile.profile_picture.url %}
-      <img class="profile_picture" src="{{ user.profile.profile_picture.url }}" style="height: 10vh; width:10vh;"
-        alt="{{ profile.name }}">
-      {% else %}
-      <img class="profile_picture"
-        src="https://res.cloudinary.com/dbos9xidr/image/upload/v1626854682/zvtfufhexa8lqqqgcdt3.png"
-        style="height: 10vh; width:10vh;" alt="{{ profile.name }}">
-      {% endif %}
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <h2>Account</h2>
+      <div class="card profile">
+        {% if user.profile.profile_picture.url %}
+        <img class="profile_picture" src="{{ user.profile.profile_picture.url }}" style="height: 10vh; width:10vh;"
+          alt="{{ profile.name }}">
+        {% else %}
+        <img class="profile_picture"
+          src="https://res.cloudinary.com/dbos9xidr/image/upload/v1626854682/zvtfufhexa8lqqqgcdt3.png"
+          style="height: 10vh; width:10vh;" alt="{{ profile.name }}">
+        {% endif %}
 
-      <p class="">{{user.username}}</p>
-      <p class="">{{cards|length}} Cards</p>
-      <a href="{% url 'create_card' %}"><button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
+        <p class="">{{user.username}}</p>
+        <p class="">{{cards|length}} Cards</p>
+        <a href="{% url 'create_card' %}"><button class="btn btn-primary" id="site" data-toggle="modal"
+            data-target=".bd-example-modal-xl">Create Card</button></a>
+      </div>
     </div>
+    <div class="col-md-1"></div>
     <div class="col-md-4">
+      <h2>Flashcards</h2>
       {% if cards %}
       {% for card in cards %}
-      <a href="{% url 'card_view' card.id  %}"><div class="card">
-        <p class="title">{{card.title}}</p>
-        <p>Created on {{card.created_at|date}}</p>
-      </div></a>
+      <a href="{% url 'card_view' card.id  %}">
+        <div class="card">
+          <p class="title">{{card.title}}</p>
+          <p>Subject: {{card.subject.name}}</p>
+          <p>{{card.created_at|date}}</p>
+        </div>
+      </a>
       {% endfor %}
+      {% else %}
+      <h2 class="text-warning"> No Flashcards in this subject</h2>
       {% endif %}
     </div>
-    <div class="col-md-4">
-      <ul>
-        <li><a href="{% url 'physics' %}" class="">Physics</a></li>
-        <li><a href="{% url 'bio' %}" class="">Biology</a></li>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <h2>Subjects</h2>
+      <ul class="card">
+        <li><a href="{% url 'physics' %}">Physics</a></li>
+        <li><a href="{% url 'bio' %}">Biology</a></li>
         <li><a href="{% url 'history' %}">History</a></li>
         <li><a href="{% url 'chem' %}">Chemistry</a></li>
       </ul>
     </div>
+    <div class="col-md-1"></div>
   </div>
 </div>
 {% endblock %}
