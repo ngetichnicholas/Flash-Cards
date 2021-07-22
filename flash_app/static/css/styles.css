@@ -27,7 +27,10 @@ body {
   background-color: #006579 !important;
   color: #FED401;
 }
-.forms {
+.text-muted {
+  color: #A1BFA0 !important;
+}
+.forms, .panel {
   padding: 2rem;
   margin: 2rem;
   background-color: #006579 !important;
