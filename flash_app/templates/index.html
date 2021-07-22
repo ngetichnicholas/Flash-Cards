@@ -18,29 +18,31 @@
         <p class="name">{{user.username}}</p>
         <p class="number">{{user_cards|length}} Cards</p>
         <a href="{% url 'create_card' %}"><button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
-
     </div>
     <div class="col-md-1"></div>
-    <div class="col-md-6">
+    <div class="col-md-4 ">
     
       {% if user_cards %}
       {% for card in user_cards %}
       <div class="card notes">
-      <a href="{% url 'card_view' card.id  %}"><div class="card">
+      <a href="{% url 'card_view' card.id  %}"><div class=" ">
         <p class="title">{{card.title}}</p>
         <p>Created on {{card.created_at|date}}</p>
       </div></a>
       {% endfor %}
       {% endif %}
     </div>
-    <div class="col-md-4">
-      <ul>
+    </div>
+    <div class= "col-md-1"></div>
+    <div class="col-md-1">
+      <h2>Subjects</h2>
+      <ul class="categories">
         <li><a href="{% url 'physics' %}" class="">Physics</a></li>
         <li><a href="{% url 'bio' %}" class="">Biology</a></li>
         <li><a href="{% url 'history' %}">History</a></li>
         <li><a href="{% url 'chem' %}">Chemistry</a></li>
       </ul>
     </div>
-  </div>
+  <div class="col-md-2"></div>
 </div>
 {% endblock %}
