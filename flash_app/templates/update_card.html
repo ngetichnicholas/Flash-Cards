@@ -9,14 +9,14 @@
         <hr>
 
         <div class="" id="myContent">
-          <form action="" method="POST" enctype="multipart/form-data">
+          <form class="forms" action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
               <label for="" class="border-bottom mb-4 text-center">Edit Flashcard</label>
               {% bootstrap_form update_card_form%}
             </fieldset>
             <div class="form-group">
-              <button class="btn btn-outline-info" type="submit">Update</button>
+              <button class="btn btn-primary" type="submit">Update</button>
             </div>
           </form>
         </div>

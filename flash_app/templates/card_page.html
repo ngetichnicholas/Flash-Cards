@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-2">
       {% if user.profile.profile_picture.url %}
       <img class="profile_picture" src="{{ user.profile.profile_picture.url }}" style="height: 10vh; width:10vh;"
         alt="{{ profile.name }}">
@@ -17,7 +17,7 @@
       <p class="">{{user_cards|length}} Cards</p>
       <a href="{% url 'create_card' %}"><button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-8">
       <div class="card-header">
         <h2 class="title text-center">{{card.title}}</h2>
       </div>
@@ -44,7 +44,7 @@
         {% endif %}
       </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-2"></div>
   </div>
 </div>
 {% endblock %}

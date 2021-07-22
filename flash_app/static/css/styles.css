@@ -10,18 +10,29 @@ body {
   background-image: url('../images/jason-leung-Xaanw0s0pMk-unsplash\ \(2\).jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  font-size: 22px;
   font-family: 'Yatra One', cursive;
-
+  color: white;
 }
-
-.notes {
-  background-color: rgba(255, 255, 255, 0.883);
-  height:10rem;
-  margin-bottom: 2rem;
-  color: rgb(3, 33, 53) ;
+.cards,.card-header,.card-footer,.card-body {
+  padding: 2rem;
+  margin: 0.3rem;
+  background-color: #006579 !important;
+  color: #FED401;
+}
+.forms {
+  padding: 2rem;
+  margin: 2rem;
+  background-color: #006579 !important;
+  color: #FED401;
+}
+.card {
   box-shadow:0 0 2px 2px #b40e9e;
+  background-color: #006579;
+  color: #FED401;
+  padding: 2rem;
+  margin: 2rem;
 }
-
 .profile{
   color: white;
   text-align: center;
@@ -30,7 +41,12 @@ body {
   padding-top: 5px;
   box-shadow:0 0 2px 2px #b40e9e;
 }
-
+h2 {
+  text-align: center;
+  background-color: #006579;
+  color: white;
+  margin-top: 2rem;
+}
 .name{
   font-size: 30px;
   font-weight: 900;
