@@ -108,8 +108,8 @@ def update_card(request, card_id):
 #API Views
 class FlashCardList(APIView):
   def get(self,request,format=None):
-    projects=FlashCard.objects.all()
-    serializers=FlashCardSerializer(projects,many=True)
+    cards=FlashCard.objects.all()
+    serializers=FlashCardSerializer(cards,many=True)
     return Response(serializers.data)
 
   def post(self, request, format=None):
@@ -169,7 +169,7 @@ def filter_bio_cards(request):
   return render(request, 'subjects.html', {'cards':cards})
 
 def filter_history_cards(request):
-  try:
+  try: 
    cards = FlashCard.objects.filter(subject =3)
   except ObjectDoesNotExist:
     raise Http404()
@@ -181,3 +181,16 @@ def filter_chem_cards(request):
   except ObjectDoesNotExist:
     raise Http404()
   return render(request, 'subjects.html', {'cards':cards})
+
+@login_required
+def search(request):
+  if 'card' in request.GET and request.GET["card"]:
+    search_term = request.GET.get("card")
+    searched_cards = FlashCard.search_cards(search_term)
+    message = f"{search_term}"
+
+    return render(request,'search.html', {"message":message,"cards":searched_cards})
+
+  else:
+    message = "You haven't searched for any term"
+    return render(request,'search.html',{"message":message})
