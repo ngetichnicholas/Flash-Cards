@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Yatra+One&family=Zen+Tokyo+Zoo&display=swap');
-#navigate {
+.navbar {
   margin-bottom:5rem;
   background-color: rgb(22, 61, 83);
   color:white;
-  padding-left: 10rem;
-  padding-right: 20rem;
 }
 body {
   background-image: url('../images/jason-leung-Xaanw0s0pMk-unsplash\ \(2\).jpg');
@@ -13,6 +11,15 @@ body {
   font-size: 22px;
   font-family: 'Yatra One', cursive;
   color: white;
+}
+.profile_picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-items: center;
+  text-align: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 .cards,.card-header,.card-footer,.card-body {
   padding: 2rem;
@@ -73,8 +80,8 @@ h1 {
   color:white;
   font-weight: 900;
 }
-#reg{
-  color: white;
+.nav-link{
+  color: white !important;
 }
 
 #login {
@@ -83,4 +90,17 @@ h1 {
 
 #logout {
   color: white;
+}
+@media screen and (max-width:1082px) {
+  .card {
+    margin: 2rem 0 2rem 0 !important;
+    padding: 0 !important;
+  }
+  
+}
+@media screen and (max-width:766px) {
+  .form-inline>.form-control,.btn {
+    margin-bottom: 1rem !important;
+  }
+  
 }

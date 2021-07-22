@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <h2>Account</h2>
       <div class="card profile">
         {% if user.profile.profile_picture.url %}
@@ -22,7 +22,6 @@
             data-target=".bd-example-modal-xl">Create Card</button></a>
       </div>
     </div>
-    <div class="col-md-1"></div>
     <div class="col-md-4">
       <h2>Flashcards</h2>
       <div class="row text-center">
@@ -45,8 +44,7 @@
       {% endfor %}
       {% endif %}
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <h2>Subjects</h2>
       <ul class="card">
         <li><a href="{% url 'physics' %}">Physics</a></li>
