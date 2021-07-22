@@ -33,19 +33,32 @@ body {
   padding: 2rem;
   margin: 2rem;
 }
+ul {
+  list-style: none;
+}
+.card>li>a {
+  color: #FED401;
+}
 .profile{
-  color: white;
+  color: #FED401;
   text-align: center;
+  align-items: center;
   height: 20rem;
   background-color: rgb(6, 124, 148);
   padding-top: 5px;
   box-shadow:0 0 2px 2px #b40e9e;
+}
+.title {
+  color: #FED401;
 }
 h2 {
   text-align: center;
   background-color: #006579;
   color: white;
   margin-top: 2rem;
+}
+h1 {
+  background-color: #006579;
 }
 .name{
   font-size: 30px;

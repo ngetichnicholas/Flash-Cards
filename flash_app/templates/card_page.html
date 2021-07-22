@@ -3,32 +3,37 @@
 {% block content %}
 <div class="container-fluid">
   <div class="row">
+    <div class="col-md-1"></div>
     <div class="col-md-2">
-      {% if user.profile.profile_picture.url %}
-      <img class="profile_picture" src="{{ user.profile.profile_picture.url }}" style="height: 10vh; width:10vh;"
-        alt="{{ profile.name }}">
-      {% else %}
-      <img class="profile_picture"
-        src="https://res.cloudinary.com/dbos9xidr/image/upload/v1626854682/zvtfufhexa8lqqqgcdt3.png"
-        style="height: 10vh; width:10vh;" alt="{{ profile.name }}">
-      {% endif %}
-
-      <p class="">{{user.username}}</p>
-      <p class="">{{user_cards|length}} Cards</p>
-      <a href="{% url 'create_card' %}"><button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
+      <h2>Account</h2>
+      <div class="card profile">
+        {% if user.profile.profile_picture.url %}
+        <img class="profile_picture" src="{{ user.profile.profile_picture.url }}" style="height: 10vh; width:10vh;"
+          alt="{{ profile.name }}">
+        {% else %}
+        <img class="profile_picture"
+          src="https://res.cloudinary.com/dbos9xidr/image/upload/v1626854682/zvtfufhexa8lqqqgcdt3.png"
+          style="height: 10vh; width:10vh;" alt="{{ profile.name }}">
+        {% endif %}
+  
+        <p class="">{{user.username}}</p>
+        <p class="">{{user_cards|length}} Cards</p>
+        <a href="{% url 'create_card' %}"><button class="btn btn-primary" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
+      </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
+      <h2>Flashcard</h2>
       <div class="card-header">
         <h2 class="title text-center">{{card.title}}</h2>
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h3>Front</h3>
+            <h3 class="border-bottom mb-4 text-center">Front</h3>
             <p>{{card.front_side}}</p>
           </div>
           <div class="col-md-6">
-            <h3>Back</h3>
+            <h3 class="border-bottom mb-4 text-center">Back</h3>
             <p>{{card.back_side}}</p>
           </div>
         </div>
@@ -44,7 +49,16 @@
         {% endif %}
       </div>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <h2>Subjects</h2>
+      <ul class="card">
+        <li><a href="{% url 'physics' %}">Physics</a></li>
+        <li><a href="{% url 'bio' %}">Biology</a></li>
+        <li><a href="{% url 'history' %}">History</a></li>
+        <li><a href="{% url 'chem' %}">Chemistry</a></li>
+      </ul>
+    </div>
+    <div class="col-md-1"></div>
   </div>
 </div>
 {% endblock %}

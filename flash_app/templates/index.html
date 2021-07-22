@@ -6,7 +6,7 @@
     <div class="col-md-1"></div>
     <div class="col-md-2">
       <h2>Account</h2>
-      <div class="card">
+      <div class="card profile">
         {% if user.profile.profile_picture.url %}
         <img class="profile_picture" src="{{ user.profile.profile_picture.url }}" style="height: 10vh; width:10vh;"
           alt="{{ profile.name }}">
@@ -18,7 +18,7 @@
   
         <p class="">{{user.username}}</p>
         <p class="">{{user_cards|length}} Cards</p>
-        <a href="{% url 'create_card' %}"><button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
+        <a href="{% url 'create_card' %}"><button class="btn btn-primary" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">Create Card</button></a>
       </div>
     </div>
     <div class="col-md-1"></div>
